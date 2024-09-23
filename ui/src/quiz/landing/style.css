@@ -1,0 +1,260 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-color);
+    margin: 0;
+    padding: 20px;
+    color: var(--dark-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.control-btn, .calendar-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.control-btn:hover, .calendar-btn:hover {
+    background-color: #0056b3;
+}
+
+.control-btn.active {
+    background-color: var(--success-color);
+}
+
+.exam-type-control {
+    margin-bottom: 10px;
+}
+
+.instructions h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.instruction-item i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.quiz-status {
+    text-align: center;
+    padding: 20px;
+    background-color: #e7f3fe;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.start-quiz-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--success-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.start-quiz-btn:hover {
+    background-color: #218838;
+}
+
+.start-quiz-btn:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+}
+
+.calendar-btn {
+    display: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.motivation-text {
+    text-align: center;
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-top: 10px;
+}
+
+.quiz-details h3, .related-resources h3, .past-attempts h3 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+.countdown-timer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.past-attempts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.past-attempts li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+    }
+}
+
+
+#resultControls {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+#reviewQuizBtn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#reviewQuizBtn:hover {
+  background-color: #0056b3;
+}
+
+#resultStatus {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#resultPublishDate {
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+#pastControls {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.past-btn {
+    background-color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.past-btn.active {
+    background-color: var(--success-color);
+}
+
+#canReviewCheckbox {
+    margin-right: 5px;
+}
+
+
+.review-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.review-btn:hover {
+    background-color: #0056b3;
+}
+
+.review-unavailable {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-left: 10px;
+}
