@@ -1,0 +1,113 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Content - Card View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            100: '#1E2028',
+                            200: '#2A2C37',
+                            300: '#3A3D4A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>/* ! tailwindcss v3.4.5 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-8{margin-bottom:2rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.flex{display:flex}.h-48{height:12rem}.w-full{width:100%}.cursor-pointer{cursor:pointer}.items-center{align-items:center}.justify-between{justify-content:space-between}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.bg-dark-100{--tw-bg-opacity:1;background-color:rgb(30 32 40 / var(--tw-bg-opacity))}.bg-dark-200{--tw-bg-opacity:1;background-color:rgb(42 44 55 / var(--tw-bg-opacity))}.bg-dark-300{--tw-bg-opacity:1;background-color:rgb(58 61 74 / var(--tw-bg-opacity))}.bg-gray-600{--tw-bg-opacity:1;background-color:rgb(75 85 99 / var(--tw-bg-opacity))}.bg-green-600{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity))}.object-cover{object-fit:cover}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-8{padding-top:2rem;padding-bottom:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity))}.text-purple-500{--tw-text-opacity:1;color:rgb(168 85 247 / var(--tw-text-opacity))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8 / var(--tw-text-opacity))}</style></head>
+<body class="bg-dark-100 text-gray-200 dark">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Course Content Tab (Card View)</h1>
+
+        <div class="space-y-6">
+            <!-- Module 1: Introduction (Expanded) -->
+            <div class="bg-dark-200 rounded-lg overflow-hidden">
+                <div class="bg-dark-300 p-4 flex justify-between items-center cursor-pointer">
+                    <h2 class="text-xl font-semibold">Module 1: Introduction</h2>
+                    <span class="text-sm bg-green-600 text-white px-2 py-1 rounded">Expanded</span>
+                </div>
+                <div class="p-4 space-y-4">
+                    <!-- Lecture Card -->
+                    <div class="bg-dark-300 rounded-lg p-4">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-play-circle text-blue-500 mr-2"></i>
+                            <h3 class="text-lg font-semibold">Lecture 1: Welcome</h3>
+                        </div>
+                        <p class="text-gray-400 mb-2">Introduction to the course and its objectives.</p>
+                        <img src="https://source.unsplash.com/random/800x400?lecture" alt="Lecture thumbnail" class="w-full h-48 object-cover rounded mb-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-500"><i class="fas fa-check-circle mr-1"></i> Completed</span>
+                            <span class="text-gray-400">Published: Jan 1, 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Card -->
+                    <div class="bg-dark-300 rounded-lg p-4">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-question-circle text-yellow-500 mr-2"></i>
+                            <h3 class="text-lg font-semibold">Quiz 1: Basics</h3>
+                        </div>
+                        <p class="text-gray-400 mb-2">Test your understanding of the introductory concepts.</p>
+                        <img src="https://source.unsplash.com/random/800x400?quiz" alt="Quiz thumbnail" class="w-full h-48 object-cover rounded mb-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-500"><i class="fas fa-clock mr-1"></i> Upcoming</span>
+                            <span class="text-gray-400">Due: Jan 15, 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Assignment Card -->
+                    <div class="bg-dark-300 rounded-lg p-4">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-file-alt text-purple-500 mr-2"></i>
+                            <h3 class="text-lg font-semibold">Assignment 1: Research</h3>
+                        </div>
+                        <p class="text-gray-400 mb-2">Conduct research on a topic of your choice related to the course.</p>
+                        <img src="https://source.unsplash.com/random/800x400?research" alt="Assignment thumbnail" class="w-full h-48 object-cover rounded mb-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-500"><i class="fas fa-lock mr-1"></i> Restricted</span>
+                            <span class="text-gray-400">Complete Lecture 2 to unlock</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2: Advanced Concepts (Collapsed) -->
+            <div class="bg-dark-200 rounded-lg overflow-hidden">
+                <div class="bg-dark-300 p-4 flex justify-between items-center cursor-pointer">
+                    <h2 class="text-xl font-semibold">Module 2: Advanced Concepts</h2>
+                    <span class="text-sm bg-gray-600 text-white px-2 py-1 rounded">Collapsed</span>
+                </div>
+            </div>
+
+            <!-- Module 3: Applications (Restricted) -->
+            <div class="bg-dark-200 rounded-lg overflow-hidden">
+                <div class="bg-dark-300 p-4 flex justify-between items-center cursor-pointer">
+                    <h2 class="text-xl font-semibold">Module 3: Applications</h2>
+                    <span class="text-sm bg-red-600 text-white px-2 py-1 rounded">Restricted</span>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-400">Complete Module 2 to unlock this section.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity for expanding/collapsing sections
+        document.querySelectorAll('.bg-dark-300').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                if (content) {
+                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                }
+            });
+        });
+    </script>
+
+</body></html>

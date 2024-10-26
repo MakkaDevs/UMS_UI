@@ -1,0 +1,5 @@
+message
+instructors
+vision
+goals
+about university

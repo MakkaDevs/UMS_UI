@@ -1,0 +1,823 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <script src="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/js/jquery-3.3.1.min.js"></script>
+    <script src="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/js/selectionBox.js"></script>
+    <script src="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/js/options/preview_iframe.js"></script>
+    <link rel="stylesheet" href="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/css/template_iframe.css">
+    <style>
+body {  
+  line-height:inherit;
+  color:hsl(var(--foreground));
+  font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}  
+body { 
+/* CSS Variables that may have been missed get put on body */ 
+  --tw-translate-x:  0;  
+  --tw-translate-y:  0;  
+  --tw-rotate:  0;  
+  --tw-skew-x:  0;  
+  --tw-skew-y:  0;  
+  --tw-scale-x:  1;  
+  --tw-scale-y:  1;  
+  --tw-ring-offset-shadow:  0 0 #0000;  
+  --tw-ring-shadow:  0 0 #0000;  
+  --tw-shadow:  0 0 #0000;  
+  --tw-translate-x:  0;  
+  --tw-translate-y:  0;  
+  --tw-rotate:  0;  
+  --tw-skew-x:  0;  
+  --tw-skew-y:  0;  
+  --tw-scale-x:  1;  
+  --tw-scale-y:  1;  
+  --tw-ring-offset-shadow:  0 0 #0000;  
+  --tw-ring-shadow:  0 0 #0000;  
+  --tw-shadow:  0 0 #0000;  
+  --tw-translate-x:  0;  
+  --tw-translate-y:  0;  
+  --tw-rotate:  0;  
+  --tw-skew-x:  0;  
+  --tw-skew-y:  0;  
+  --tw-scale-x:  1;  
+  --tw-scale-y:  1;  
+  --tw-ring-offset-shadow:  0 0 #0000;  
+  --tw-ring-shadow:  0 0 #0000;  
+  --tw-shadow:  0 0 #0000;  
+  --tw-bg-opacity:  1;  
+  --tw-text-opacity:  1;  
+  --tw-bg-opacity:  1;  
+  --tw-space-x-reverse:  0;  
+  --tw-space-x-reverse:  0;  
+  --tw-shadow:  0 1px 2px 0 rgb(0 0 0 / 0.05);  
+  --tw-shadow-colored:  0 1px 2px 0 var(--tw-shadow-color);  
+  --tw-shadow:  0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);  
+  --tw-shadow-colored:  0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);  
+  --tw-space-y-reverse:  0;  
+  --tw-translate-y:  -50%;  
+  --tw-space-x-reverse:  0;  
+  --tw-space-y-reverse:  0;  
+} 
+
+* { 
+  --tw-translate-x: 0; 
+  --tw-translate-y: 0; 
+  --tw-rotate: 0; 
+  --tw-skew-x: 0; 
+  --tw-skew-y: 0; 
+  --tw-scale-x: 1; 
+  --tw-scale-y: 1; 
+  --tw-ring-offset-shadow: 0 0 #0000; 
+  --tw-ring-shadow: 0 0 #0000; 
+  --tw-shadow: 0 0 #0000; 
+} 
+
+* { 
+  box-sizing: border-box; 
+  border-width: 0; 
+  border-style: solid; 
+  border-color: #e5e7eb;
+} 
+
+* { 
+  border-color: hsl(var(--border));
+} 
+
+body { 
+  margin: 0; 
+  line-height: inherit;
+} 
+
+body { 
+  background-color: hsl(var(--background)); 
+  color: hsl(var(--foreground));
+} 
+
+body { 
+  font-family: Arial, Helvetica, sans-serif;
+} 
+
+html { 
+  line-height: 1.5; 
+  -webkit-text-size-adjust: 100%; 
+  -moz-tab-size: 4; 
+  tab-size: 4; 
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+  font-feature-settings: normal; 
+  font-variation-settings: normal; 
+  -webkit-tap-highlight-color: transparent;
+} 
+
+:root { 
+  --background: 0 0% 100%; 
+  --foreground: 0 0% 3.9%; 
+  --card: 0 0% 100%; 
+  --card-foreground: 0 0% 3.9%; 
+  --primary: 0 0% 9%; 
+  --primary-foreground: 0 0% 98%; 
+  --muted-foreground: 0 0% 45.1%; 
+  --accent: 0 0% 96.1%; 
+  --accent-foreground: 0 0% 9%; 
+  --border: 0 0% 89.8%; 
+  --input: 0 0% 89.8%; 
+  --radius: 0.5rem;
+} 
+
+*,:before,:after { 
+  --tw-translate-x: 0; 
+  --tw-translate-y: 0; 
+  --tw-rotate: 0; 
+  --tw-skew-x: 0; 
+  --tw-skew-y: 0; 
+  --tw-scale-x: 1; 
+  --tw-scale-y: 1; 
+  --tw-ring-offset-shadow: 0 0 #0000; 
+  --tw-ring-shadow: 0 0 #0000; 
+  --tw-shadow: 0 0 #0000; 
+} 
+
+*,:before,:after { 
+  box-sizing: border-box; 
+  border-width: 0; 
+  border-style: solid; 
+  border-color: #e5e7eb;
+} 
+
+:backdrop { 
+  --tw-translate-x: 0; 
+  --tw-translate-y: 0; 
+  --tw-rotate: 0; 
+  --tw-skew-x: 0; 
+  --tw-skew-y: 0; 
+  --tw-scale-x: 1; 
+  --tw-scale-y: 1; 
+  --tw-ring-offset-shadow: 0 0 #0000; 
+  --tw-ring-shadow: 0 0 #0000; 
+  --tw-shadow: 0 0 #0000; 
+} 
+
+.flex { 
+  display: flex;
+} 
+
+.min-h-screen { 
+  min-height: 100vh;
+} 
+
+.flex-col { 
+  flex-direction: column;
+} 
+
+.border-b { 
+  border-bottom-width: 1px;
+} 
+
+.flex-grow { 
+  flex-grow: 1;
+} 
+
+.bg-gray-800 { 
+  --tw-bg-opacity: 1; 
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+} 
+
+.py-8 { 
+  padding-top: 2rem; 
+  padding-bottom: 2rem;
+} 
+
+.text-white { 
+  --tw-text-opacity: 1; 
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+} 
+
+.container { 
+  width: 100%;
+} 
+
+@media (min-width: 640px){ 
+.container { 
+  max-width: 640px;
+} 
+}     
+
+@media (min-width: 768px){ 
+.container { 
+  max-width: 768px;
+} 
+}     
+
+@media (min-width: 1024px){ 
+.container { 
+  max-width: 1024px;
+} 
+}     
+
+@media (min-width: 1280px){ 
+.container { 
+  max-width: 1280px;
+} 
+}     
+
+@media (min-width: 1536px){ 
+.container { 
+  max-width: 1536px;
+} 
+}     
+
+.mx-auto { 
+  margin-left: auto; 
+  margin-right: auto;
+} 
+
+.items-center { 
+  align-items: center;
+} 
+
+.justify-between { 
+  justify-content: space-between;
+} 
+
+.px-4 { 
+  padding-left: 1rem; 
+  padding-right: 1rem;
+} 
+
+.py-4 { 
+  padding-top: 1rem; 
+  padding-bottom: 1rem;
+} 
+
+.relative { 
+  position: relative;
+} 
+
+.h-\[600px\] { 
+  height: 600px;
+} 
+
+.justify-center { 
+  justify-content: center;
+} 
+
+.text-center { 
+  text-align: center;
+} 
+
+.bg-gray-50 { 
+  --tw-bg-opacity: 1; 
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+} 
+
+.py-16 { 
+  padding-top: 4rem; 
+  padding-bottom: 4rem;
+} 
+
+.bg-primary { 
+  background-color: hsl(var(--primary));
+} 
+
+.text-primary-foreground { 
+  color: hsl(var(--primary-foreground));
+} 
+
+a { 
+  color: inherit; 
+  text-decoration: inherit;
+} 
+
+.hidden { 
+  display: none;
+} 
+
+@media (min-width: 768px){ 
+.md\:flex { 
+  display: flex;
+} 
+}     
+
+img { 
+  display: block; 
+  vertical-align: middle;
+} 
+
+img { 
+  max-width: 100%; 
+  height: auto;
+} 
+
+.absolute { 
+  position: absolute;
+} 
+
+.inset-0 { 
+  inset: 0px;
+} 
+
+.z-0 { 
+  z-index: 0;
+} 
+
+.z-10 { 
+  z-index: 10;
+} 
+
+.max-w-3xl { 
+  max-width: 48rem;
+} 
+
+.grid { 
+  display: grid;
+} 
+
+.grid-cols-1 { 
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+} 
+
+.gap-8 { 
+  gap: 2rem;
+} 
+
+@media (min-width: 768px){ 
+.md\:grid-cols-3 { 
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+} 
+}     
+
+.text-xl { 
+  font-size: 1.25rem; 
+  line-height: 1.75rem;
+} 
+
+.font-bold { 
+  font-weight: 700;
+} 
+
+.space-x-2 > :not([hidden]) ~ :not([hidden])  { 
+  --tw-space-x-reverse: 0; 
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse)); 
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+} 
+
+.text-sm { 
+  font-size: 0.875rem; 
+  line-height: 1.25rem;
+} 
+
+.font-medium { 
+  font-weight: 500;
+} 
+
+.space-x-4 > :not([hidden]) ~ :not([hidden])  { 
+  --tw-space-x-reverse: 0; 
+  margin-right: calc(1rem * var(--tw-space-x-reverse)); 
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+} 
+
+button { 
+  font-family: inherit; 
+  font-feature-settings: inherit; 
+  font-variation-settings: inherit; 
+  font-size: 100%; 
+  font-weight: inherit; 
+  line-height: inherit; 
+  letter-spacing: inherit; 
+  color: inherit; 
+  margin: 0; 
+  padding: 0;
+} 
+
+button { 
+  text-transform: none;
+} 
+
+button { 
+  -webkit-appearance: button; 
+  background-color: transparent; 
+  background-image: none;
+} 
+
+button { 
+  cursor: pointer;
+} 
+
+.inline-flex { 
+  display: inline-flex;
+} 
+
+.h-9 { 
+  height: 2.25rem;
+} 
+
+.w-9 { 
+  width: 2.25rem;
+} 
+
+.gap-2 { 
+  gap: 0.5rem;
+} 
+
+.whitespace-nowrap { 
+  white-space: nowrap;
+} 
+
+.rounded-md { 
+  border-radius: calc(var(--radius) - 2px);
+} 
+
+.transition-colors { 
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; 
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+  transition-duration: 150ms;
+} 
+
+.hover\:bg-accent:hover { 
+  background-color: hsl(var(--accent));
+} 
+
+.hover\:text-accent-foreground:hover { 
+  color: hsl(var(--accent-foreground));
+} 
+
+.border { 
+  border-width: 1px;
+} 
+
+.border-input { 
+  border-color: hsl(var(--input));
+} 
+
+.bg-background { 
+  background-color: hsl(var(--background));
+} 
+
+.py-2 { 
+  padding-top: 0.5rem; 
+  padding-bottom: 0.5rem;
+} 
+
+.shadow-sm { 
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color); 
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+} 
+
+.shadow { 
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); 
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color); 
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+} 
+
+.hover\:bg-primary\/90:hover { 
+  background-color: hsl(var(--primary) / 0.9);
+} 
+
+h1 { 
+  font-size: inherit; 
+  font-weight: inherit;
+} 
+
+h1 { 
+  margin: 0;
+} 
+
+.text-4xl { 
+  font-size: 2.25rem; 
+  line-height: 2.5rem;
+} 
+
+@media (min-width: 768px){ 
+.md\:text-6xl { 
+  font-size: 3.75rem; 
+  line-height: 1;
+} 
+}     
+
+p { 
+  margin: 0;
+} 
+
+.max-w-2xl { 
+  max-width: 42rem;
+} 
+
+@media (min-width: 768px){ 
+.md\:text-2xl { 
+  font-size: 1.5rem; 
+  line-height: 2rem;
+} 
+}     
+
+.space-y-6 > :not([hidden]) ~ :not([hidden])  { 
+  --tw-space-y-reverse: 0; 
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse))); 
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+} 
+
+h2 { 
+  font-size: inherit; 
+  font-weight: inherit;
+} 
+
+h2 { 
+  margin: 0;
+} 
+
+.mb-8 { 
+  margin-bottom: 2rem;
+} 
+
+.text-3xl { 
+  font-size: 1.875rem; 
+  line-height: 2.25rem;
+} 
+
+.mb-4 { 
+  margin-bottom: 1rem;
+} 
+
+.text-muted-foreground { 
+  color: hsl(var(--muted-foreground));
+} 
+
+.max-w-4xl { 
+  max-width: 56rem;
+} 
+
+.max-w-md { 
+  max-width: 28rem;
+} 
+
+svg { 
+  display: block; 
+  vertical-align: middle;
+} 
+
+.h-5 { 
+  height: 1.25rem;
+} 
+
+.w-5 { 
+  width: 1.25rem;
+} 
+
+.\[\&_svg\]\:pointer-events-none svg  { 
+  pointer-events: none;
+} 
+
+.\[\&_svg\]\:size-4 svg  { 
+  width: 1rem; 
+  height: 1rem;
+} 
+
+.\[\&_svg\]\:shrink-0 svg  { 
+  flex-shrink: 0;
+} 
+
+.sr-only { 
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip: rect(0, 0, 0, 0); 
+  white-space: nowrap; 
+  border-width: 0;
+} 
+
+.h-10 { 
+  height: 2.5rem;
+} 
+
+.px-8 { 
+  padding-left: 2rem; 
+  padding-right: 2rem;
+} 
+
+.rounded-xl { 
+  border-radius: 0.75rem;
+} 
+
+.bg-card { 
+  background-color: hsl(var(--card));
+} 
+
+.text-card-foreground { 
+  color: hsl(var(--card-foreground));
+} 
+
+.overflow-hidden { 
+  overflow: hidden;
+} 
+
+:disabled { 
+  cursor: default;
+} 
+
+.-left-12 { 
+  left: -3rem;
+} 
+
+.top-1\/2 { 
+  top: 50%;
+} 
+
+.h-8 { 
+  height: 2rem;
+} 
+
+.w-8 { 
+  width: 2rem;
+} 
+
+.-translate-y-1\/2 { 
+  --tw-translate-y: -50%; 
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+} 
+
+.rounded-full { 
+  border-radius: 9999px;
+} 
+
+.disabled\:pointer-events-none:disabled { 
+  pointer-events: none;
+} 
+
+.disabled\:opacity-50:disabled { 
+  opacity: 0.5;
+} 
+
+.-right-12 { 
+  right: -3rem;
+} 
+
+.space-x-8 > :not([hidden]) ~ :not([hidden])  { 
+  --tw-space-x-reverse: 0; 
+  margin-right: calc(2rem * var(--tw-space-x-reverse)); 
+  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+} 
+
+input { 
+  font-family: inherit; 
+  font-feature-settings: inherit; 
+  font-variation-settings: inherit; 
+  font-size: 100%; 
+  font-weight: inherit; 
+  line-height: inherit; 
+  letter-spacing: inherit; 
+  color: inherit; 
+  margin: 0; 
+  padding: 0;
+} 
+
+.w-full { 
+  width: 100%;
+} 
+
+.rounded-r-none { 
+  border-top-right-radius: 0px; 
+  border-bottom-right-radius: 0px;
+} 
+
+.bg-transparent { 
+  background-color: transparent;
+} 
+
+.px-3 { 
+  padding-left: 0.75rem; 
+  padding-right: 0.75rem;
+} 
+
+.py-1 { 
+  padding-top: 0.25rem; 
+  padding-bottom: 0.25rem;
+} 
+
+.rounded-l-none { 
+  border-top-left-radius: 0px; 
+  border-bottom-left-radius: 0px;
+} 
+
+h3 { 
+  font-size: inherit; 
+  font-weight: inherit;
+} 
+
+h3 { 
+  margin: 0;
+} 
+
+.text-lg { 
+  font-size: 1.125rem; 
+  line-height: 1.75rem;
+} 
+
+ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0;
+} 
+
+.p-6 { 
+  padding: 1.5rem;
+} 
+
+.pt-0 { 
+  padding-top: 0px;
+} 
+
+.-ml-4 { 
+  margin-left: -1rem;
+} 
+
+.h-4 { 
+  height: 1rem;
+} 
+
+.w-4 { 
+  width: 1rem;
+} 
+
+.space-y-2 > :not([hidden]) ~ :not([hidden])  { 
+  --tw-space-y-reverse: 0; 
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse))); 
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+} 
+
+.rounded-t-lg { 
+  border-top-left-radius: var(--radius); 
+  border-top-right-radius: var(--radius);
+} 
+
+.font-semibold { 
+  font-weight: 600;
+} 
+
+.leading-none { 
+  line-height: 1;
+} 
+
+.tracking-tight { 
+  letter-spacing: -0.025em;
+} 
+
+.min-w-0 { 
+  min-width: 0px;
+} 
+
+.shrink-0 { 
+  flex-shrink: 0;
+} 
+
+.grow-0 { 
+  flex-grow: 0;
+} 
+
+.basis-full { 
+  flex-basis: 100%;
+} 
+
+.pl-4 { 
+  padding-left: 1rem;
+} 
+
+@media (min-width: 768px){ 
+.md\:basis-1\/2 { 
+  flex-basis: 50%;
+} 
+}     
+
+blockquote { 
+  margin: 0;
+} 
+
+.italic { 
+  font-style: italic;
+} 
+
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-hf7wq.style-hf7wq {  
+ position:absolute;  
+ height:100%;  
+ width:100%;  
+ left:0;  
+ top:0;  
+ right:0;  
+ bottom:0;  
+ object-fit:cover;  
+ color:transparent;  
+}  
+#style-Ra3H2.style-Ra3H2 {  
+ transform: translate3d(0px, 0px, 0px);  
+}  
+#style-5MtK5.style-5MtK5 {  
+ transform: translate3d(0px, 0px, 0px);  
+}  
+    </style>
+ </head>
+ <body>
+<div style="padding:50px" class="snipcss-ozM7Q"><div class="flex flex-col min-h-screen"><header class="border-b"><div class="container mx-auto px-4 py-4 flex items-center justify-between"><a class="flex items-center space-x-2" href="/"><img alt="University Logo" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"><span class="text-xl font-bold">Online University</span></a><nav class="hidden md:flex space-x-4"><a class="text-sm font-medium" href="/">Home</a><a class="text-sm font-medium" href="/programs">Programs</a><a class="text-sm font-medium" href="/courses">Open Courses</a><a class="text-sm font-medium" href="/library">Library</a><a class="text-sm font-medium" href="/about">About Us</a><a class="text-sm font-medium" href="/contact">Contact Us</a></nav><div class="flex items-center space-x-4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 w-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search h-5 w-5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="sr-only">Search</span></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 w-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span class="sr-only">Language</span></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">Login</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Sign Up</button></div></div></header><main class="flex-grow"><section class="relative h-[600px] flex items-center justify-center text-center text-white"><img alt="Hero Background" loading="lazy" decoding="async" data-nimg="fill" class="absolute inset-0 z-0 style-hf7wq" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/_next/image?url=%2Fplaceholder.svg%3Fheight%3D600%26width%3D1600&amp;w=3840&amp;q=75" id="style-hf7wq"><div class="relative z-10 space-y-6 px-4"><h1 class="text-4xl md:text-6xl font-bold">Unlock Your Potential: Join a Cohort of Lifelong Learners</h1><p class="text-xl md:text-2xl max-w-2xl mx-auto">Experience the power of collaborative learning in our unique cohort-based programs. Gain skills, build connections, and advance your career.</p><div class="flex justify-center space-x-4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-md px-8">Explore Programs</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-10 rounded-md px-8">Sign Up</button></div></div></section><section class="py-16 bg-gray-50"><div class="container mx-auto px-4"><h2 class="text-3xl font-bold text-center mb-8">Explore Our Top Programs</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="rounded-xl border bg-card text-card-foreground shadow"><div class="flex flex-col space-y-1.5 p-6"><img alt="Program 1" loading="lazy" width="300" height="200" decoding="async" data-nimg="1" class="rounded-t-lg" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"></div><div class="p-6 pt-0"><h3 class="font-semibold leading-none tracking-tight">Program 1</h3><p class="text-sm text-muted-foreground">Gain in-demand skills and join a supportive cohort in this flexible online program.</p></div><div class="flex items-center p-6 pt-0"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Learn More</button></div></div><div class="rounded-xl border bg-card text-card-foreground shadow"><div class="flex flex-col space-y-1.5 p-6"><img alt="Program 2" loading="lazy" width="300" height="200" decoding="async" data-nimg="1" class="rounded-t-lg" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"></div><div class="p-6 pt-0"><h3 class="font-semibold leading-none tracking-tight">Program 2</h3><p class="text-sm text-muted-foreground">Gain in-demand skills and join a supportive cohort in this flexible online program.</p></div><div class="flex items-center p-6 pt-0"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Learn More</button></div></div><div class="rounded-xl border bg-card text-card-foreground shadow"><div class="flex flex-col space-y-1.5 p-6"><img alt="Program 3" loading="lazy" width="300" height="200" decoding="async" data-nimg="1" class="rounded-t-lg" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"></div><div class="p-6 pt-0"><h3 class="font-semibold leading-none tracking-tight">Program 3</h3><p class="text-sm text-muted-foreground">Gain in-demand skills and join a supportive cohort in this flexible online program.</p></div><div class="flex items-center p-6 pt-0"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Learn More</button></div></div></div></div></section><section class="py-16"><div class="container mx-auto px-4"><h2 class="text-3xl font-bold text-center mb-4">Discover Open Courses</h2><p class="text-center text-muted-foreground mb-8">Start learning today with our free, accessible courses.</p><div class="relative max-w-4xl mx-auto" role="region" aria-roledescription="carousel"><div class="overflow-hidden"><div class="flex -ml-4 style-Ra3H2" id="style-Ra3H2"><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4 md:basis-1/2"><div class="rounded-xl border bg-card text-card-foreground shadow"><div class="flex flex-col space-y-1.5 p-6"><img alt="Course 1" loading="lazy" width="300" height="200" decoding="async" data-nimg="1" class="rounded-t-lg" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"></div><div class="p-6 pt-0"><h3 class="font-semibold leading-none tracking-tight">Course 1</h3><p class="text-sm text-muted-foreground">A brief description of the course and its benefits.</p></div><div class="flex items-center p-6 pt-0"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Enroll Now</button></div></div></div><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4 md:basis-1/2"><div class="rounded-xl border bg-card text-card-foreground shadow"><div class="flex flex-col space-y-1.5 p-6"><img alt="Course 2" loading="lazy" width="300" height="200" decoding="async" data-nimg="1" class="rounded-t-lg" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"></div><div class="p-6 pt-0"><h3 class="font-semibold leading-none tracking-tight">Course 2</h3><p class="text-sm text-muted-foreground">A brief description of the course and its benefits.</p></div><div class="flex items-center p-6 pt-0"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Enroll Now</button></div></div></div><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4 md:basis-1/2"><div class="rounded-xl border bg-card text-card-foreground shadow"><div class="flex flex-col space-y-1.5 p-6"><img alt="Course 3" loading="lazy" width="300" height="200" decoding="async" data-nimg="1" class="rounded-t-lg" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"></div><div class="p-6 pt-0"><h3 class="font-semibold leading-none tracking-tight">Course 3</h3><p class="text-sm text-muted-foreground">A brief description of the course and its benefits.</p></div><div class="flex items-center p-6 pt-0"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Enroll Now</button></div></div></div></div></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -left-12 top-1/2 -translate-y-1/2" disabled=""><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"><path d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span class="sr-only">Previous slide</span></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -right-12 top-1/2 -translate-y-1/2"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span class="sr-only">Next slide</span></button></div></div></section><section class="py-16 bg-gray-50"><div class="container mx-auto px-4 max-w-3xl"><h2 class="text-3xl font-bold text-center mb-8">A Message from Our Supervisor</h2><div class="flex items-center space-x-8"><img alt="Supervisor" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="rounded-full" style="color:transparent" src="https://sinister-wizard-p7gx5w4v4rg36r6g-3000.app.github.dev/placeholder.svg"><div><p class="text-lg mb-4">"Welcome to our online university! We're committed to providing high-quality education and fostering a supportive learning community. Join us on this exciting journey of growth and discovery."</p><p class="font-bold">Dr. Jane Smith, University Supervisor</p></div></div></div></section><section class="py-16"><div class="container mx-auto px-4 text-center"><h2 class="text-3xl font-bold mb-8">What Our Students Say</h2><div class="relative max-w-2xl mx-auto" role="region" aria-roledescription="carousel"><div class="overflow-hidden"><div class="flex -ml-4 style-5MtK5" id="style-5MtK5"><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4"><blockquote class="italic text-lg mb-4">"This online university has transformed my career. The cohort-based learning model provided invaluable support and networking opportunities."</blockquote><p class="font-bold">- Student 1</p></div><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4"><blockquote class="italic text-lg mb-4">"This online university has transformed my career. The cohort-based learning model provided invaluable support and networking opportunities."</blockquote><p class="font-bold">- Student 2</p></div><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4"><blockquote class="italic text-lg mb-4">"This online university has transformed my career. The cohort-based learning model provided invaluable support and networking opportunities."</blockquote><p class="font-bold">- Student 3</p></div></div></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -left-12 top-1/2 -translate-y-1/2" disabled=""><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"><path d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span class="sr-only">Previous slide</span></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -right-12 top-1/2 -translate-y-1/2"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span class="sr-only">Next slide</span></button></div></div></section><section class="py-16 bg-primary text-primary-foreground"><div class="container mx-auto px-4 text-center"><h2 class="text-3xl font-bold mb-4">Stay Updated</h2><p class="mb-8">Subscribe to our newsletter for the latest news and course offerings.</p><form class="flex max-w-md mx-auto"><input type="email" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 rounded-r-none" placeholder="Enter your email"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 rounded-l-none" type="submit">Subscribe</button></form></div></section></main><footer class="bg-gray-800 text-white py-8"><div class="container mx-auto px-4"><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div><h3 class="text-lg font-bold mb-4">Online University</h3><p>© 2024 Online University. All rights reserved.</p></div><div><h3 class="text-lg font-bold mb-4">Quick Links</h3><ul class="space-y-2"><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms of Service</a></li></ul></div><div><h3 class="text-lg font-bold mb-4">Connect With Us</h3><div class="flex space-x-4"></div></div></div></div></footer></div></div>   
+
+</body></html>

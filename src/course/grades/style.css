@@ -1,0 +1,576 @@
+<html><head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+      <script src="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/js/jquery-3.3.1.min.js"></script>
+      <script src="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/js/selectionBox.js"></script>
+      <script src="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/js/options/preview_iframe.js"></script>
+      <link rel="stylesheet" href="chrome-extension://hbdnoadcmapfbngbodpppofgagiclicf/css/template_iframe.css">
+      <style>
+  body {  
+    line-height:1.5;
+    font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }  
+body { 
+/* CSS Variables that may have been missed get put on body */ 
+    --tw-ring-offset-shadow:  0 0 #0000;  
+    --tw-ring-shadow:  0 0 #0000;  
+    --tw-shadow:  0 0 #0000;  
+    --tw-ring-offset-shadow:  0 0 #0000;  
+    --tw-ring-shadow:  0 0 #0000;  
+    --tw-shadow:  0 0 #0000;  
+    --tw-ring-offset-shadow:  0 0 #0000;  
+    --tw-ring-shadow:  0 0 #0000;  
+    --tw-shadow:  0 0 #0000;  
+    --tw-bg-opacity:  1;  
+    --tw-shadow:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);  
+    --tw-shadow-colored:  0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);  
+    --tw-space-y-reverse:  0;  
+    --tw-text-opacity:  1;  
+    --tw-space-x-reverse:  0;  
+    --tw-text-opacity:  1;  
+    --tw-text-opacity:  1;  
+    --tw-shadow:  0 1px 2px 0 rgb(0 0 0 / 0.05);  
+    --tw-shadow-colored:  0 1px 2px 0 var(--tw-shadow-color);  
+} 
+
+* { 
+    --tw-ring-offset-shadow: 0 0 #0000; 
+    --tw-ring-shadow: 0 0 #0000; 
+    --tw-shadow: 0 0 #0000; 
+} 
+
+* { 
+    box-sizing: border-box; 
+    border-width: 0; 
+    border-style: solid; 
+    border-color: #e5e7eb;
+} 
+
+* { 
+    border-color: hsl(var(--border));
+} 
+
+html { 
+    line-height: 1.5; 
+    -webkit-text-size-adjust: 100%; 
+    -moz-tab-size: 4; 
+    tab-size: 4; 
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+    font-feature-settings: normal; 
+    font-variation-settings: normal; 
+    -webkit-tap-highlight-color: transparent;
+} 
+
+:root { 
+    --background: 0 0% 100%; 
+    --foreground: 0 0% 3.9%; 
+    --primary: 0 0% 9%; 
+    --muted: 0 0% 96.1%; 
+    --muted-foreground: 0 0% 45.1%; 
+    --accent: 0 0% 96.1%; 
+    --accent-foreground: 0 0% 9%; 
+    --border: 0 0% 89.8%; 
+    --input: 0 0% 89.8%; 
+    --radius: 0.5rem;
+} 
+
+body { 
+    margin: 0; 
+    line-height: inherit;
+} 
+
+body { 
+    background-color: hsl(var(--background)); 
+    color: hsl(var(--foreground));
+} 
+
+body { 
+    font-family: Arial, Helvetica, sans-serif;
+} 
+
+.antialiased { 
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+} 
+
+*,:before,:after { 
+    --tw-ring-offset-shadow: 0 0 #0000; 
+    --tw-ring-shadow: 0 0 #0000; 
+    --tw-shadow: 0 0 #0000; 
+} 
+
+*,:before,:after { 
+    box-sizing: border-box; 
+    border-width: 0; 
+    border-style: solid; 
+    border-color: #e5e7eb;
+} 
+
+:backdrop { 
+    --tw-ring-offset-shadow: 0 0 #0000; 
+    --tw-ring-shadow: 0 0 #0000; 
+    --tw-shadow: 0 0 #0000; 
+} 
+
+.container { 
+    width: 100%;
+} 
+
+@media (min-width: 640px){ 
+  .container { 
+    max-width: 640px;
+  } 
+}     
+
+@media (min-width: 768px){ 
+  .container { 
+    max-width: 768px;
+  } 
+}     
+
+@media (min-width: 1024px){ 
+  .container { 
+    max-width: 1024px;
+  } 
+}     
+
+@media (min-width: 1280px){ 
+  .container { 
+    max-width: 1280px;
+  } 
+}     
+
+.mx-auto { 
+    margin-left: auto; 
+    margin-right: auto;
+} 
+
+.p-4 { 
+    padding: 1rem;
+} 
+
+canvas { 
+    display: block; 
+    vertical-align: middle;
+} 
+
+h1 { 
+    font-size: inherit; 
+    font-weight: inherit;
+} 
+
+h1 { 
+    margin: 0;
+} 
+
+.mb-4 { 
+    margin-bottom: 1rem;
+} 
+
+.text-2xl { 
+    font-size: 1.5rem; 
+    line-height: 2rem;
+} 
+
+.font-bold { 
+    font-weight: 700;
+} 
+
+.rounded-lg { 
+    border-radius: var(--radius);
+} 
+
+.bg-white { 
+    --tw-bg-opacity: 1; 
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+} 
+
+.p-6 { 
+    padding: 1.5rem;
+} 
+
+.shadow-md { 
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); 
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color); 
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+} 
+
+.space-y-6 > :not([hidden]) ~ :not([hidden])  { 
+    --tw-space-y-reverse: 0; 
+    margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse))); 
+    margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+} 
+
+h2 { 
+    font-size: inherit; 
+    font-weight: inherit;
+} 
+
+h2 { 
+    margin: 0;
+} 
+
+.mb-2 { 
+    margin-bottom: 0.5rem;
+} 
+
+.text-xl { 
+    font-size: 1.25rem; 
+    line-height: 1.75rem;
+} 
+
+.font-semibold { 
+    font-weight: 600;
+} 
+
+.flex { 
+    display: flex;
+} 
+
+.items-center { 
+    align-items: center;
+} 
+
+.relative { 
+    position: relative;
+} 
+
+.w-full { 
+    width: 100%;
+} 
+
+.overflow-auto { 
+    overflow: auto;
+} 
+
+.h-2 { 
+    height: 0.5rem;
+} 
+
+.overflow-hidden { 
+    overflow: hidden;
+} 
+
+.rounded-full { 
+    border-radius: 9999px;
+} 
+
+.bg-primary\/20 { 
+    background-color: hsl(var(--primary) / 0.2);
+} 
+
+.text-yellow-600 { 
+    --tw-text-opacity: 1; 
+    color: rgb(202 138 4 / var(--tw-text-opacity));
+} 
+
+.space-x-4 > :not([hidden]) ~ :not([hidden])  { 
+    --tw-space-x-reverse: 0; 
+    margin-right: calc(1rem * var(--tw-space-x-reverse)); 
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+} 
+
+table { 
+    text-indent: 0; 
+    border-color: inherit; 
+    border-collapse: collapse;
+} 
+
+.caption-bottom { 
+    caption-side: bottom;
+} 
+
+.text-sm { 
+    font-size: 0.875rem; 
+    line-height: 1.25rem;
+} 
+
+.h-full { 
+    height: 100%;
+} 
+
+.flex-1 { 
+    flex: 1 1 0%;
+} 
+
+.bg-primary { 
+    background-color: hsl(var(--primary));
+} 
+
+.transition-all { 
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    transition-duration: 150ms;
+} 
+
+svg { 
+    display: block; 
+    vertical-align: middle;
+} 
+
+.border-b { 
+    border-bottom-width: 1px;
+} 
+
+.transition-colors { 
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    transition-duration: 150ms;
+} 
+
+.\[\&_tr\]\:border-b tr  { 
+    border-bottom-width: 1px;
+} 
+
+.\[\&_tr\:last-child\]\:border-0 tr:last-child  { 
+    border-width: 0px;
+} 
+
+.h-10 { 
+    height: 2.5rem;
+} 
+
+.cursor-pointer { 
+    cursor: pointer;
+} 
+
+.px-2 { 
+    padding-left: 0.5rem; 
+    padding-right: 0.5rem;
+} 
+
+.text-left { 
+    text-align: left;
+} 
+
+.align-middle { 
+    vertical-align: middle;
+} 
+
+.font-medium { 
+    font-weight: 500;
+} 
+
+.text-muted-foreground { 
+    color: hsl(var(--muted-foreground));
+} 
+
+.p-2 { 
+    padding: 0.5rem;
+} 
+
+.text-green-600 { 
+    --tw-text-opacity: 1; 
+    color: rgb(22 163 74 / var(--tw-text-opacity));
+} 
+
+.text-blue-600 { 
+    --tw-text-opacity: 1; 
+    color: rgb(37 99 235 / var(--tw-text-opacity));
+} 
+
+p { 
+    margin: 0;
+} 
+
+.hover\:bg-muted\/50:hover { 
+    background-color: hsl(var(--muted) / 0.5);
+} 
+
+button { 
+    font-family: inherit; 
+    font-feature-settings: inherit; 
+    font-variation-settings: inherit; 
+    font-size: 100%; 
+    font-weight: inherit; 
+    line-height: inherit; 
+    letter-spacing: inherit; 
+    color: inherit; 
+    margin: 0; 
+    padding: 0;
+} 
+
+button { 
+    text-transform: none;
+} 
+
+button { 
+    -webkit-appearance: button; 
+    background-color: transparent; 
+    background-image: none;
+} 
+
+button { 
+    cursor: pointer;
+} 
+
+.inline-flex { 
+    display: inline-flex;
+} 
+
+.h-8 { 
+    height: 2rem;
+} 
+
+.justify-center { 
+    justify-content: center;
+} 
+
+.gap-2 { 
+    gap: 0.5rem;
+} 
+
+.whitespace-nowrap { 
+    white-space: nowrap;
+} 
+
+.rounded-md { 
+    border-radius: calc(var(--radius) - 2px);
+} 
+
+.border { 
+    border-width: 1px;
+} 
+
+.border-input { 
+    border-color: hsl(var(--input));
+} 
+
+.bg-background { 
+    background-color: hsl(var(--background));
+} 
+
+.px-3 { 
+    padding-left: 0.75rem; 
+    padding-right: 0.75rem;
+} 
+
+.text-xs { 
+    font-size: 0.75rem; 
+    line-height: 1rem;
+} 
+
+.shadow-sm { 
+    --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+    --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color); 
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+} 
+
+.hover\:bg-accent:hover { 
+    background-color: hsl(var(--accent));
+} 
+
+.hover\:text-accent-foreground:hover { 
+    color: hsl(var(--accent-foreground));
+} 
+
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-nwG3X.style-nwG3X {  
+   width:100%;  
+   height:300px;  
+   min-width:0;  
+}  
+#style-ooric.style-ooric {  
+   position: relative;  
+    cursor: default;  
+    width: 100%;  
+    height: 100%;  
+    max-height: 300px;  
+    max-width: 1200px;  
+}  
+#style-KmGID.style-KmGID {  
+   visibility: hidden;  
+    pointer-events: none;  
+    position: absolute;  
+    top: 0px;  
+    left: 0px;  
+    transform: translate(105.9px, 10px);  
+}  
+#style-efSzn.style-efSzn {  
+   margin: 0px;  
+    padding: 10px;  
+    background-color: rgb(255, 255, 255);  
+    border: 1px solid rgb(204, 204, 204);  
+    white-space: nowrap;  
+}  
+#style-AwO7D.style-AwO7D {  
+   margin: 0px;  
+}  
+#style-jZDMb.style-jZDMb {  
+   position: absolute;  
+}  
+#recharts_measurement_span.style-7Vx23 {  
+   position: absolute;  
+    top: -20000px;  
+    left: 0px;  
+    padding: 0px;  
+    margin: 0px;  
+    border: none;  
+    white-space: pre;  
+    font-size: 16px;  
+    letter-spacing: normal;  
+}  
+#style-sKtcm.style-sKtcm {  
+   top: 14px;  
+    left: 52px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-dOXF2.style-dOXF2 {  
+   top: 14px;  
+    left: 1300px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-4hm6c.style-4hm6c {  
+   top: 48px;  
+    left: 52px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-XYWjq.style-XYWjq {  
+   top: 14px;  
+    left: 50px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-OCgNH.style-OCgNH {  
+   top: -2px;  
+    left: 0px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-AehtY.style-AehtY {  
+   top: -4px;  
+    left: -4px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-lBoLb.style-lBoLb {  
+   top: -4px;  
+    left: -4px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-iB3Lf.style-iB3Lf {  
+   top: -2px;  
+    left: -2px;  
+    height: 0px;  
+    width: 0px;  
+}  
+#style-akgwk.style-akgwk {  
+   top: 0px;  
+    left: 0px;  
+    position: absolute;  
+}  
+#snipcss-kiwi.style-FJooc {  
+   left: 1266px;  
+    top: 0px;  
+}  
+      </style>
+   </head>
+   <body>
+<div class="__variable_1e4310 __variable_c3aa02 antialiased snipcss-Mwg17"><div class="container mx-auto p-4 space-y-6"><h1 class="text-2xl font-bold mb-4">Course Grades</h1><div class="bg-white p-6 rounded-lg shadow-md"><h2 class="text-xl font-semibold mb-2">Overall Course Grade</h2><div class="flex items-center space-x-4"><div aria-valuemax="100" aria-valuemin="0" role="progressbar" data-state="indeterminate" data-max="100" class="relative h-2 overflow-hidden rounded-full bg-primary/20 w-full"><div data-state="indeterminate" data-max="100" class="h-full w-full flex-1 bg-primary transition-all" style="transform:translateX(-23.200000000000003%)"></div></div><span class="text-2xl font-bold text-yellow-600">76.80%</span></div></div><div class="bg-white p-6 rounded-lg shadow-md"><h2 class="text-xl font-semibold mb-4">Grade Breakdown</h2><div class="relative w-full overflow-auto"><table class="w-full caption-bottom text-sm"><thead class="[&amp;_tr]:border-b"><tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] cursor-pointer">Assessment Name </th><th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] cursor-pointer">Due Date ▲</th><th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] cursor-pointer">Grade </th><th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] cursor-pointer">Weight </th><th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">Feedback</th></tr></thead><tbody class="[&amp;_tr:last-child]:border-0"><tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">Quiz 1</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">2024-01-15</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] text-green-600">90%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">20%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs">View</button></td></tr><tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">Assignment 1</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">2024-01-22</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] text-blue-600">85%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">30%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs">View</button></td></tr><tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">Midterm Exam</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">2024-02-15</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] text-yellow-600">78%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">25%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">N/A</td></tr><tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">Project</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">2024-03-01</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px] text-green-600">92%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">15%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs">View</button></td></tr><tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">Final Exam</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">2024-03-15</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">N/A</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">10%</td><td class="p-2 align-middle [&amp;:has([role=checkbox])]:pr-0 [&amp;>[role=checkbox]]:translate-y-[2px]">N/A</td></tr></tbody></table></div></div><div class="bg-white p-6 rounded-lg shadow-md"><h2 class="text-xl font-semibold mb-4">Grade Distribution</h2><div class="recharts-responsive-container style-nwG3X" id="style-nwG3X"><div class="recharts-wrapper style-ooric" id="style-ooric"><svg class="recharts-surface" width="1200" height="300" viewBox="0 0 1200 300" style="width: 100%; height: 100%;"><title></title><desc></desc><defs><clipPath id="recharts2-clip"><rect x="65" y="5" height="260" width="1130"></rect></clipPath></defs><g class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-line" stroke="#666" fill="none" x1="65" y1="265" x2="1195" y2="265"></line><g class="recharts-cartesian-axis-ticks"><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="121.5" y1="271" x2="121.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="121.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="121.5" dy="0.71em">0-10</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="234.5" y1="271" x2="234.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="234.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="234.5" dy="0.71em">11-20</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="347.5" y1="271" x2="347.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="347.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="347.5" dy="0.71em">21-30</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="460.5" y1="271" x2="460.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="460.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="460.5" dy="0.71em">31-40</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="573.5" y1="271" x2="573.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="573.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="573.5" dy="0.71em">41-50</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="686.5" y1="271" x2="686.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="686.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="686.5" dy="0.71em">51-60</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="799.5" y1="271" x2="799.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="799.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="799.5" dy="0.71em">61-70</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="912.5" y1="271" x2="912.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="912.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="912.5" dy="0.71em">71-80</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="1025.5" y1="271" x2="1025.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="1025.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="1025.5" dy="0.71em">81-90</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="bottom" width="1130" height="30" x="65" y="265" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="1138.5" y1="271" x2="1138.5" y2="265"></line><text orientation="bottom" width="1130" height="30" stroke="none" x="1138.5" y="273" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="middle" fill="#666"><tspan x="1138.5" dy="0.71em">91-100</tspan></text></g></g></g><g class="recharts-layer recharts-cartesian-axis recharts-yAxis yAxis"><line orientation="left" width="60" height="260" x="5" y="5" class="recharts-cartesian-axis-line" stroke="#666" fill="none" x1="65" y1="5" x2="65" y2="265"></line><g class="recharts-cartesian-axis-ticks"><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="left" width="60" height="260" x="5" y="5" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="59" y1="265" x2="65" y2="265"></line><text orientation="left" width="60" height="260" stroke="none" x="57" y="265" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="end" fill="#666"><tspan x="57" dy="0.355em">0</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="left" width="60" height="260" x="5" y="5" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="59" y1="200" x2="65" y2="200"></line><text orientation="left" width="60" height="260" stroke="none" x="57" y="200" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="end" fill="#666"><tspan x="57" dy="0.355em">5</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="left" width="60" height="260" x="5" y="5" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="59" y1="135" x2="65" y2="135"></line><text orientation="left" width="60" height="260" stroke="none" x="57" y="135" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="end" fill="#666"><tspan x="57" dy="0.355em">10</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="left" width="60" height="260" x="5" y="5" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="59" y1="70" x2="65" y2="70"></line><text orientation="left" width="60" height="260" stroke="none" x="57" y="70" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="end" fill="#666"><tspan x="57" dy="0.355em">15</tspan></text></g><g class="recharts-layer recharts-cartesian-axis-tick"><line orientation="left" width="60" height="260" x="5" y="5" class="recharts-cartesian-axis-tick-line" stroke="#666" fill="none" x1="59" y1="5" x2="65" y2="5"></line><text orientation="left" width="60" height="260" stroke="none" x="57" y="12" class="recharts-text recharts-cartesian-axis-tick-value" text-anchor="end" fill="#666"><tspan x="57" dy="0.355em">20</tspan></text></g></g></g><g class="recharts-layer recharts-bar"><g class="recharts-layer recharts-bar-rectangles"><g class="recharts-layer"><g class="recharts-layer recharts-bar-rectangle"><path x="76.3" y="252" width="90" height="13" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 76.3,252 h 90 v 13 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="189.3" y="239" width="90" height="26" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 189.3,239 h 90 v 26 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="302.3" y="226" width="90" height="39" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 302.3,226 h 90 v 39 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="415.3" y="200" width="90" height="65" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 415.3,200 h 90 v 65 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="528.3" y="161" width="90" height="104" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 528.3,161 h 90 v 104 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="641.3" y="135" width="90" height="130" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 641.3,135 h 90 v 130 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="754.3" y="70" width="90" height="195" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 754.3,70 h 90 v 195 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="867.3" y="5" width="90" height="260" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 867.3,5 h 90 v 260 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="980.3" y="30.999999999999993" width="90" height="234" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 980.3,30.999999999999993 h 90 v 234 h -90 Z"></path></g><g class="recharts-layer recharts-bar-rectangle"><path x="1093.3" y="109" width="90" height="156" radius="0" fill="#8884d8" class="recharts-rectangle" d="M 1093.3,109 h 90 v 156 h -90 Z"></path></g></g></g><g class="recharts-layer"></g></g></svg><div tabindex="-1" class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom style-KmGID" id="style-KmGID"><div class="recharts-default-tooltip style-efSzn" id="style-efSzn"><p class="recharts-tooltip-label style-AwO7D" id="style-AwO7D">0-10</p></div></div></div></div></div></div><next-route-announcer id="style-jZDMb" class="style-jZDMb"></next-route-announcer><span id="recharts_measurement_span" aria-hidden="true" class="style-7Vx23">0</span><div class="snipcss-modal snipcss-micromodal-slide" id="modal-pick-resolution"></div><div class="edge_builder edge_builder_top style-sKtcm" id="style-sKtcm"></div><div class="edge_builder edge_builder_right style-dOXF2" id="style-dOXF2"></div><div class="edge_builder edge_builder_bottom style-4hm6c" id="style-4hm6c"></div><div class="edge_builder edge_builder_left style-XYWjq" id="style-XYWjq"></div><div class="edge_builder2 edge_builder_top style-OCgNH" id="style-OCgNH"></div><div class="edge_builder2 edge_builder_right style-AehtY" id="style-AehtY"></div><div class="edge_builder2 edge_builder_bottom style-lBoLb" id="style-lBoLb"></div><div class="edge_builder2 edge_builder_left style-iB3Lf" id="style-iB3Lf"></div><div data-tether-id="1" id="style-akgwk" class="style-akgwk"></div><canvas width="70" height="70" id="snipcss-kiwi" class="style-FJooc"></canvas></div>   
+
+</body></html>
